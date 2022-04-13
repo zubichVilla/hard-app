@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Hardware} from "./hardware-model";
+import {HardwareService} from "./hardware.service";
 
 @Component({
   selector: 'app-hardware',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HardwareComponent implements OnInit {
 
-  constructor() { }
+  hardwareList!: Hardware[];
+  selectedHardware!: Hardware;
+
+  constructor(private hardwareService: HardwareService) { }
 
   ngOnInit(): void {
+    this.getHardware();
   }
 
+
+  getHardware(): void {
+    this.hardwareService.getHardware()
+      .subscribe(hardwareList => this.hardwareList = hardwareList)
+  }
+
+  onSelect(hardware: Hardware): void {
+    this.selectedHardware = hardware;
+  }
 }

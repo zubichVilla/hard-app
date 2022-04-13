@@ -1,1 +1,14 @@
 <p>hardware works!</p>
+
+<h2>Hardware App</h2>
+
+<h3>Hardver</h3>
+
+<ul>
+  <li *ngFor="let hardware of hardwareList" (click)="onSelect(hardware)">
+    <span>{{hardware.name}}</span>
+  </li>
+</ul>
+
+<app-hardware-detail [hardware]="selectedHardware"></app-hardware-detail>
+
