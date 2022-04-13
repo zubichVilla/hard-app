@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+ul{
+  list-style-type: none;
+}
+
+li{
+  width: 15rem;
+}
+
+.card{
+  margin: 1.5rem 0;
+}
+
+.card,.card-body {
+  transition: all 0.3s ease;
+  cursor: pointer
+}
+
+.card:hover,.card-body:hover {
+  background-color:#c2c3c4;
+}
+
+.selected{
+  background-color: #888888;
+}
+
+
