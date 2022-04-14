@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HardwareComponent } from './hardware/hardware.component';
 import { HardwareDetailComponent } from './hardware/hardware-detail/hardware-detail.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HardwarePriceComponent } from './hardware/hardware-price/hardware-price.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HardwareComponent,
-    HardwareDetailComponent
+    HardwareDetailComponent,
+    HardwarePriceComponent
   ],
   imports: [
     BrowserModule,
