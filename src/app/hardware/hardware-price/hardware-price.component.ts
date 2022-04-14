@@ -7,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class HardwarePriceComponent implements OnInit {
 
-  @Input() price!:number;
+  @Input() price?:number;
 
   constructor() { }
 

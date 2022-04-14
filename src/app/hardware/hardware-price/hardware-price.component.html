@@ -1,8 +1,10 @@
 
-<div *ngIf="price > 3000">
-  <p>Dobro je</p>
-</div>
+<div *ngIf="price">
+  <div *ngIf="price > 3000">
+    <p>Dobro je</p>
+  </div>
 
-<div *ngIf="price < 3000">
-  <p>Lose</p>
+  <div *ngIf="price < 3000">
+    <p>Lose</p>
+  </div>
 </div>
