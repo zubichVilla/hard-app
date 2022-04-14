@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-hardware-message',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hardware-message.component.css']
 })
 export class HardwareMessageComponent implements OnInit {
+
+  @Input() hardwareName?: string;
 
   constructor() { }
 
