@@ -1,20 +1,6 @@
 
 <div *ngIf="price">
-  <div *ngIf="price < 100">
-    <p>Ovaj hardver se ne može kupiti na rate.</p>
+  <div>
+    <p>{{condition(price)}}</p>
   </div>
-
-  <div *ngIf="price >= 100 && price < 400">
-    <p>Ovaj hardver se može kupiti na 6 rata.</p>
-  </div>
-
-  <div *ngIf="price >= 400 && price < 800">
-    <p>Ovaj hardver se može kupiti na 12 rata.</p>
-  </div>
-
-  <div *ngIf="price >= 800">
-    <p>Ovaj hardver se može kupiti na 24 rata.</p>
-  </div>
-
-
 </div>
