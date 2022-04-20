@@ -39,6 +39,28 @@ export class HardwareService {
 
   }
 
+  addHardware(hardware: Hardware): Observable<Hardware> {
+    return this.http.post<Hardware>(this.hardwareUrl, hardware, this.httpOptions)
+      .pipe(
+        tap(
+          (newHardware: Hardware) => console.log(`added hardware w/ code=${newHardware.code}`)),
+               catchError(this.handleError<Hardware>('addHardware'))
+      );
+  }
+
+  deleteHardware(hardware: Hardware | string): Observable<Hardware> {
+
+    const code = typeof hardware === 'string' ? hardware : hardware.code;
+    const url = `${this.hardwareUrl}/${code}`;
+
+    return this.http.delete<Hardware>(url, this.httpOptions).pipe(
+      tap(
+        _ => console.log(`deleted hardware code=${code}`)),
+             catchError(this.handleError<Hardware>('deleteHardware'))
+    );
+  }
+
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(operation);
@@ -46,4 +68,6 @@ export class HardwareService {
       return of(result as T);
     };
   }
+
+
 }
