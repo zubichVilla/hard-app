@@ -13,4 +13,8 @@ export class HardwareService {
   getHardware(): Observable<Hardware[]>{
     return of(MockedHardwareList)
   }
+
+  getHardwareById(code: String){
+    return MockedHardwareList.find( h => h.code === code)
+  }
 }
