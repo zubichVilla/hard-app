@@ -12,7 +12,7 @@ export class HardwareComponent implements OnInit {
   hardwareList!: Hardware[];
   selectedHardware!: Hardware;
 
-  constructor(private hardwareService: HardwareService) { }
+  constructor( private hardwareService: HardwareService ) { }
 
   ngOnInit(): void {
     this.getHardware();
@@ -23,6 +23,7 @@ export class HardwareComponent implements OnInit {
     this.hardwareService.getHardware()
       .subscribe(hardwareList => this.hardwareList = hardwareList)
   }
+
 
   onSelect(hardware: Hardware): void {
     this.selectedHardware = hardware;

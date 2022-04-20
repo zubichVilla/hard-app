@@ -22,7 +22,9 @@ export class HardwareDetailComponent implements OnInit {
     const  hardwareIdFromRoute = String(routeParams.get('code'));
 
     // Find the product that correspond with the id provided in route.
-    this.hardware = this.hardwareService.getHardwareById(hardwareIdFromRoute)
+    this.hardwareService.getHardwareByCode(hardwareIdFromRoute)
+      .subscribe(hardware => this.hardware = hardware)
+
   }
 
 }
