@@ -4,4 +4,5 @@ export interface Hardware{
   price: number;
   type: string;
   quantityAvailable: number;
+  tes:number;
 }
