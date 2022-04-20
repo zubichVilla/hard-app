@@ -16,10 +16,6 @@ export class HardwareService {
 
   constructor( private http: HttpClient) { }
 
-  // getHardware(): Observable<Hardware[]>{
-  //   return of(MockedHardwareList)
-  // }
-
   getHardware(): Observable<Hardware[]> {
 
     return this.http.get<Hardware[]>(this.hardwareUrl)
@@ -30,10 +26,6 @@ export class HardwareService {
 
       );
   }
-
-  // getHardwareById(code: String){
-  //   return MockedHardwareList.find( h => h.code === code)
-  // }
 
   getHardwareByCode(code: string): Observable<Hardware>{
 
