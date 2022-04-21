@@ -48,6 +48,15 @@ export class HardwareService {
       );
   }
 
+  updateHardware(hardware: Hardware): Observable<any> {
+    const url = `${this.hardwareUrl}/${hardware.code}`;
+    return this.http.put(url, hardware, this.httpOptions).pipe(
+      tap(_ => console.log(`updated hardware code=${hardware.code}`)),
+      catchError(this.handleError<any>('updateHardware'))
+    );
+  }
+
+
   deleteHardware(hardware: Hardware | string): Observable<Hardware> {
 
     const code = typeof hardware === 'string' ? hardware : hardware.code;

@@ -1,0 +1,33 @@
+<p>hardware-edit works!</p>
+
+<form [formGroup]="hardwareEditForm" (ngSubmit)="updateData()">
+
+      <label for="code">Šifra:</label><br>
+      <input style="background-color: darkgrey; cursor: not-allowed" id="code" type="text" formControlName="code" [readOnly]="true">
+
+    <div>
+      <label for="name">Naziv:</label><br>
+      <input id="name" type="text" formControlName="name">
+    </div>
+    <div>
+      <label for="type">Tip:</label><br>
+      <select id="type" formControlName="type">
+        <option *ngFor = "let typ of typesOfHardware">{{typ}}</option>
+      </select>
+    </div>
+    <div>
+      <label for="quantityAvailable">Broj komada na stanju:</label><br>
+      <input id="quantityAvailable" type="number" formControlName="quantityAvailable">
+    </div>
+    <div>
+      <label for="price">Cijena:</label><br>
+      <input id="price" type="number" formControlName="price">
+    </div>
+
+    <button type="submit" [disabled]="!hardwareEditForm.valid ">Submit</button>
+
+</form>
+
+<button>
+  <a [routerLink]="['/hardware']">Back</a>
+</button>

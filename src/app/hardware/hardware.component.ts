@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Hardware} from "./hardware-model";
 import {HardwareService} from "./hardware.service";
 import {HardwareType} from "./hardware-type";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-hardware',
@@ -15,7 +16,8 @@ export class HardwareComponent implements OnInit {
   typesOfHardware = Object.values(HardwareType).filter(x => typeof x === "string");
 
 
-  constructor( private hardwareService: HardwareService ) { }
+  constructor( private hardwareService: HardwareService,
+               private router: Router) { }
 
   ngOnInit(): void {
     this.getHardware();
@@ -56,4 +58,13 @@ export class HardwareComponent implements OnInit {
         () => console.log("Student deleted")
       )
   }
+
+  goToDetails(hardware: Hardware) {
+    this.router.navigate([`detail/${hardware.code}`])
+  }
+
+  editHardware(hardware: Hardware) {
+    this.router.navigate([`edit/${hardware.code}`])
+  }
+
 }
