@@ -4,6 +4,23 @@
   <p>Cijena: {{hardware.price}} EUR</p>
 </div>
 
+<div *ngIf="reviews">
+  <h2>Popis recenzija za ovaj hardware</h2>
+
+  <div *ngIf="reviews.length > 0">
+    <ul>
+      <li *ngFor="let review of reviews">
+        {{review.title}} - {{review.grade}}/5
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="reviews.length === 0">
+    <h3>Nema recenzija za ovaj hardware</h3>
+  </div>
+
+</div>
+
 <button>
   <a [routerLink]="['/hardware']">Back</a>
 </button>
