@@ -1,0 +1,20 @@
+<p>review works!</p>
+
+
+<div>
+  <input type="text" #text>
+</div>
+
+<button (click)="getReviewsWithText(text.value)">Dohvati</button>
+
+<h3>Popis recenzija</h3>
+
+<div>
+  <ul>
+    <div style="background-color: aqua; cursor: pointer">
+      <li *ngFor="let review of reviewsList" (click)="goToDetails(review)">
+        {{review.title}} - {{review.grade}} / 5
+      </li>
+    </div>
+  </ul>
+</div>
