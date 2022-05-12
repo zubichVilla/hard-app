@@ -24,6 +24,16 @@ export class ReviewService {
       )
   }
 
+  getReviewsContainingText(text: string): Observable<Review[]> {
+    const url = `${this.reviewUrl}?text=${text}`;
+
+    return this.http.get<Review[]>(url)
+      .pipe(
+        tap(_ => console.log(`fetched reviews hardware text=${text}`)),
+        catchError(this.handleError<Review[]>(`getReviews text=${text}`, []))
+      );
+  }
+
   getReviewsByHardwareCode(code: String): Observable<Review[]>{
 
     const url = `${this.reviewUrl}?code=${code}`;
@@ -36,6 +46,18 @@ export class ReviewService {
 
   }
 
+  getReviewById(id: String): Observable<Review>{
+
+    const url = `${this.reviewUrl}?id=${id}`;
+
+    return this.http.get<Review>(url)
+      .pipe(
+        tap(_ => console.log(`fetched reviews id=${id}`)),
+        catchError(this.handleError<Review>(`getReviewById id=${id}`))
+      );
+
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(operation);
@@ -43,4 +65,6 @@ export class ReviewService {
       return of(result as T);
     };
   }
+
+
 }

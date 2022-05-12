@@ -9,13 +9,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HardwareEditComponent } from './hardware/hardware-edit/hardware-edit.component';
+import { ReviewComponent } from './review/review.component';
+import { ReviewDetailComponent } from './review/review-detail/review-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HardwareComponent,
     HardwareDetailComponent,
-    HardwareEditComponent
+    HardwareEditComponent,
+    ReviewComponent,
+    ReviewDetailComponent
   ],
   imports: [
     BrowserModule,

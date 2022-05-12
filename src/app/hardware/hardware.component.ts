@@ -55,7 +55,7 @@ export class HardwareComponent implements OnInit {
     this.hardwareList = this.hardwareList.filter(hardware => hardware !== hardwareDelete);
     this.hardwareService.deleteHardware(hardwareDelete)
       .subscribe(
-        () => console.log("Student deleted")
+        () => console.log("Hardware deleted")
       )
   }
 
