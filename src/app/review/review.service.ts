@@ -36,6 +36,30 @@ export class ReviewService {
 
   }
 
+  getReviewById(id: string): Observable<Review>{
+
+    const url = `${this.reviewUrl}?id=${id}`;
+
+    return this.http.get<Review>(url)
+      .pipe(
+        tap(_ => console.log(`fetched review id=${id}`)),
+        catchError(this.handleError<Review>(`getReviewById code=${id}`))
+      );
+
+  }
+
+  getReviewsWithText(text: String): Observable<Review[]>{
+
+    const url = `${this.reviewUrl}?text=${text}`;
+
+    return this.http.get<Review[]>(url)
+      .pipe(
+        tap(_ => console.log(`fetched reviews text=${text}`)),
+        catchError(this.handleError<Review[]>(`getReviews text=${text}`, []))
+      );
+
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(operation);
