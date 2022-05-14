@@ -2,7 +2,8 @@
 
 <div></div>
 
-<div *ngIf="review">
+<div *ngIf="review && hardware">
+  <h3>{{hardware.name}}</h3>
   <p>{{review.grade}}</p><br>
   {{review.title}}<br>
   {{review.reviewText}}<br>
